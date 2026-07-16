@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NILESH RANA - Digital Business Card</title>
+    <!-- Google Fonts for Clean Typography -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- FontAwesome for Premium Visual Anchors/Icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
+    <style>
+        :root {
+            --bg-color-1: #0f172a;
+            --bg-color-2: #1e1b4b;
+            --card-bg: rgba(30, 41, 59, 0.8);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #f59e0b; /* Industrial Amber/Gold Accent */
+            --whatsapp-color: #25d366; /* Official WhatsApp Green */
+            --whatsapp-hover: #1ebd58;
+            --btn-hover: #d97706;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ANIMATED GRADIENT BACKGROUND */
+        body {
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #0f172a, #311042);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .card-container {
+            background-color: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: scale(0.98);
+            animation: cardEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes cardEntrance {
+            to { transform: scale(1); }
+        }
+
+        /* ANIMATED SHIMMER HEADER BARS */
+        .card-header {
+            background: linear-gradient(270deg, #1e293b, #334155, #475569);
+            background-size: 200% 200%;
+            animation: shimmerHeader 4s ease infinite;
+            height: 120px;
+            position: relative;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        @keyframes shimmerHeader {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .profile-img-container {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* GLOWING PULSE PROFILE AURA */
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #1e293b;
+            object-fit: cover;
+            background-color: #475569;
+            box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5); }
+            70% { box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+
+        .card-body {
+            padding: 65px 24px 32px 24px;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+        }
+
+        .profile-title {
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 4px;
+            letter-spacing: 0.05em;
+        }
+
+        .profile-company {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        /* Updated to 2 columns since Call is removed */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 10px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .btn i {
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+            color: #ffffff;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-hover);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .row-link {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .row-link:hover {
+            transform: translateX(4px);
+            background-color: rgba(255, 255, 255, 0.07);
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: -4px 0 0 0 var(--accent-color);
+        }
+
+        .row-link i {
+            font-size: 1.2rem;
+            width: 28px;
+            color: var(--accent-color);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .row-link:hover i:first-child {
+            transform: scale(1.15);
+        }
+
+        .row-link .link-text {
+            flex-grow: 1;
+            text-align: left;
+            margin-left: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row-link .link-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .row-link .link-subtitle {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        .row-link .arrow {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            align-self: center;
+            transition: transform 0.3s ease;
+        }
+
+        .row-link:hover .arrow {
+            transform: translateX(4px);
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <!-- Top Visual Banner -->
+        <div class="card-header">
+            <div class="profile-img-container">
+                <!-- Replace with your direct image link or local path -->
+                <img src="https://placeholder.com" alt="NILESH RANA" class="profile-img">
+            </div>
+        </div>
+
+        <!-- Main Contact Details -->
+        <div class="card-body">
+            <h1 class="profile-name">NILESH RANA</h1>
+            <p class="profile-title">CRM</p>
+            <p class="profile-company">Amit Machine Tools</p>
+
+            <!-- Primary Communication Row (2 Columns Now) -->
+            <div class="action-buttons">
+                <!-- Direct WhatsApp Option -->
+                <a href="https://wa.me" target="_blank" class="btn btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+                
+                <!-- Email Option -->
+                <a href="mailto:nilesh.rana@amitmachinetools.com" class="btn btn-secondary">
+                    <i class="fa-solid fa-envelope"></i> Email
+                </a>
+            </div>
+
+            <!-- Additional Channels and Navigation -->
+            <div class="links-container">
+                <!-- Website Link -->
+                <a href="https://amitmachinetools.com" target="_blank" class="row-link">
+                    <i class="fa-solid fa-globe"></i>
+                    <div class="link-text">
+                        <span class="link-title">Official Website</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+
+                <!-- Factory Address Link -->
+                <a href="https://google.com" target="_blank" class="row-link">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="link-text">
+                        <span class="link-title">Our Factory Location</span>
+                        <span class="link-subtitle">AA/81 Road No.12, Opp. Tulsi Poly waves, Hojiwala Industrial Estate, Sachin, Surat - 394230</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
